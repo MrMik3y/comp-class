@@ -1,0 +1,39 @@
+<html>
+    <head>
+      <title>Final Exam Question 1</title> 
+      <script lang="javascript">
+      function calcAverage()
+      {    
+          var nameArr = document.getElementsByName('Name'); var gradeArr = document.getElementsByName('Grade'); var total = 0;
+          var ctr = 0;
+          for(var i=0;i < nameArr.length; i++)
+        {
+          if(nameArr[i].value != "" && gradeArr[i].value != "") {
+            total += parseFloat(gradeArr[i].value);
+        ctr++; }
+        }
+     if(ctr > 0)
+       alert(total/ctr);
+     else
+       alert("No valid grades detected!");
+return; }
+     </script>
+    </head>
+    <body>
+      <h2>Student Final Grades</h2>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Grade</th>
+        </tr>
+      <script lang="javascript">
+       for(var mike=0; mike < 5; mike++)
+        document.write( "<tr>"
+                          + " <td><input type='text' name='Name' size=25></td>" 
+                          + " <td><input type='text' name='Grade' size=5></td>" 
+                          + "</tr>");
+      </script>
+    </table>
+    <input type="button" value="Get Average" onClick="calcAverage()">
+ </body>
+</html>
