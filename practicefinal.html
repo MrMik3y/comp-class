@@ -1,0 +1,401 @@
+1. Create a table of 31 rows by 2 columns. A title across the top of the page should be “Student Final Grades.” The first rows column headings should be “Name” and “Grade.” The other 30 row s should enable the input of names and grades for up to 30 students. Include a button at the bottom of the page named “Average” that will call a function named “calcAverage( )” when the button is clicked. There are two ways of doing this; the easy way and the impossible to finish way.
+
+
+
+
+ANS: with javascript
+
+   <html>
+    <head>
+<title>Final Exam Question 1</title> <script lang="javascript">
+      //FUNCTION GOES HERE
+     </script>
+    </head>
+    <body>
+     <h2>Student Final Grades</h2>
+     <table>
+      <tr>
+       <th>Name</th>
+       <th>Grade</th>
+      </tr>
+      <script lang="javascript">
+       for(var i=0; i < 30; i++)
+        document.write( "<tr>"
+12/18/16 Page 2
++ " <td><input type='text' name='Name' size=25></td>" + " <td><input type='text' name='Grade' size=5></td>" + "</tr>");
+</script>
+</table>
+<input type="button" value="Get Average" onClick="calcAverage()">
+ </body>
+</html>
+
+
+
+
+2. Create the “calcAverage( )” function for question 1. The function should total the grades for each student who has a name and grade entered. The total should then be divided by the number of grades totaled and displayed in an alert box.
+
+
+
+
+ function calcAverage()
+   {
+var nameArr = document.getElementsByName('Name'); var gradeArr = document.getElementsByName('Grade'); var total = 0;
+var ctr = 0;
+for(var i=0;i < nameArr.length; i++)
+{
+if(nameArr[i].value != "" && gradeArr[i].value != "") {
+         total += parseFloat(gradeArr[i].value);
+ctr++; }
+}
+     if(ctr > 0)
+       alert(total/ctr);
+     else
+       alert("No valid grades detected!");
+return; }
+
+
+
+
+.........1 AND 2 IN FULL CODE
+
+
+<html>
+    <head>
+      <title>Final Exam Question 1</title> 
+      <script lang="javascript">
+      function calcAverage()
+      {    
+          var nameArr = document.getElementsByName('Name'); var gradeArr = document.getElementsByName('Grade'); var total = 0;
+          var ctr = 0;
+          for(var i=0;i < nameArr.length; i++)
+        {
+          if(nameArr[i].value != "" && gradeArr[i].value != "") {
+            total += parseFloat(gradeArr[i].value);
+        ctr++; }
+        }
+     if(ctr > 0)
+       alert(total/ctr);
+     else
+       alert("No valid grades detected!");
+return; }
+     </script>
+    </head>
+    <body>
+      <h2>Student Final Grades</h2>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Grade</th>
+        </tr>
+      <script lang="javascript">
+       for(var mike=0; mike < 5; mike++)
+        document.write( "<tr>"
+                          + " <td><input type='text' name='Name' size=25></td>" 
+                          + " <td><input type='text' name='Grade' size=5></td>" 
+                          + "</tr>");
+      </script>
+    </table>
+    <input type="button" value="Get Average" onClick="calcAverage()">
+ </body>
+</html>
+
+
+
+
+3. Create the HTML document below. The “Notes” inputs are created using the following tag <textarea rows=3 cols=30></textarea>. PA inputs are checkboxes. The submit button at the bottom of the page will call the doSubmit() function when clicked; you do not have to create the function. You will receive 5 extra points if you correctly create the table using a script.
+
+
+
+
+<html>
+ <head>
+  <title>Final Exam Question 3</title>
+  <style>
+   th {
+      text-align:left;
+      font-family:courier;
+} td{
+      vertical-align: top;
+   }
+  </style>
+ </head>
+ <body>
+  <table cellpadding=5 border=0>
+   <tr>
+    <th>Name</th>
+    <th>PA</th>
+    <th>Offense</th>
+    <th>Notes</th>
+   </tr>
+   <script>
+    for(var i = 0; i < 3; i++)
+    {
+document.write("<tr>");
+document.write(" <td><input type='text' size=20></td>"); document.write(" <td><input type='checkbox'></td>"); document.write(" <td><input type='text' size=20></td>"); document.write(" <td><textarea size=30 rows=3></textarea></td>"); document.write("</tr>");
+} </script>
+</table>
+<hr />
+<br />
+<input type="button" value="Submit" onClick="doSubmit()" />
+ </body>
+</html>
+
+
+
+
+4. Create an html document that displays the following 4 images. If any image is clicked, they will start moving until they are clicked again.
+
+
+
+
+<html>
+ <head>
+  <title>ICC Final Question 4</title>
+  <style>
+   img {
+    height: 144px;
+    width: 144px;
+   }
+  </style>
+  <script>
+    var r = false;
+    var temp = new Image;
+    var randIndex0;
+    var randIndex1;
+
+    function mixup()
+    {
+if(r) {
+        randIndex0 = Math.floor(Math.random() * 4);
+        randIndex1 = Math.floor(Math.random() * 4);
+        temp.src = document.pic[randIndex0].src;
+        document.pic[randIndex0].src = document.pic[randIndex1].src;
+        document.pic[randIndex1].src = temp.src;
+        setTimeout("mixup()", 250);
+}
+}
+    function strtstop()
+    {
+     r = !r;
+     if(r == true)
+        setTimeout("mixup()", 250);
+    }
+  </script>
+ </head>
+ <body>
+  <table border=2>
+   <tr>
+    <td><img name="pic" src="heart.jpg" onClick="strtstop()"></td>
+    <td><img name="pic" src="star.jpg" onClick="strtstop()"></td>
+   </tr>
+   <tr>
+    <td><img name="pic" src="cload.jpg" onClick="strtstop()"></td>
+    <td><img name="pic" src="bolt.jpg" onClick="strtstop()"></td>
+    </tr>
+  </table>
+ </body>
+ </html>
+
+ //Another Version
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>ICC Final Question 2</title>
+  <style>
+   img {
+    height: 144px;
+    width: 144px;
+   }
+  </style>
+  <script>
+    var r = false;
+    var temp = new Image;
+    var randIndex0;
+    var randIndex1;
+    function mixup()
+    {
+if(r) {
+randIndex0 = Math.floor(Math.random() * 4); do{
+randIndex1 = Math.floor(Math.random() * 4);
+}while(randIndex0 == randIndex1);
+temp.src = document.pic[randIndex0].src; document.pic[randIndex0].src = document.pic[randIndex1].src; document.pic[randIndex1].src = temp.src;
+setTimeout("mixup()", document.getElementById('speed').value);
+  } 
+}
+    function strtstop()
+    {
+      if(r = !r)
+        setTimeout("mixup()", 250);
+} 
+</script>
+ </head>
+ <body>
+<table border=2 onClick="strtstop()"> <tr>
+<td><img name="pic" src="heart.jpg"></td>
+<td><img name="pic" src="star.jpg"></td> </tr>
+<tr>
+<td><img name="pic" src="cload.jpg"></td>
+<td><img name="pic" src="bolt.jpg"></td> </tr>
+</table>
+<select id="speed"/>
+<option value=10>Hundreth of a Second</option> <option value=100>Tenth of a Second</option> <option value=250>Quarter of a Second</option> <option value=500>Half a Second</option> <option value=1000>One Second</option> </select>
+ </body>
+</html>
+
+
+
+
+5. Create an html document that displays two buttons with a value of 0 displayed. Each time a button is clicked, add 1 to the value displayed on that button.
+
+
+
+
+<html>
+ <head>
+  <title>ICC Final Question 5</title>
+   <style>
+    input[type=button]{
+     height: 25px;
+     width: 100px;
+    }
+   </style>
+   <script>
+    function add1(i)
+    {
+      var btnArr = document.getElementsByName('btn');
+      btnArr[i].value = parseInt(btnArr[i].value) + 1;
+      return;
+} </script>
+ </head>
+ <body>
+  <input type="button" name="btn" value="0" onClick="add1(0)">
+  <input type="button" name="btn" value="0" onClick="add1(1)">
+ </body>
+</html>
+
+
+
+
+6. Create an html document that contains an image which starts and stops smoothly increasing and decreasing its size when clicked.
+
+
+
+
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>ICC Final Question 2</title>
+  <style>
+   div{
+    margin:.5em auto;
+    text-align: center;
+    } 
+  </style>
+  <script>
+    var r = false;
+    var temp = new Image;
+    var curr = 144;
+var step = 7;
+    function pulse()
+    {
+      if(r == true)
+      {
+         curr = curr + step;
+        document.pic.height = curr;
+        document.pic.width = curr;
+        if(curr >= 288)
+          step = -7;
+        if(curr <= 144)
+          step = 6;
+        setTimeout("pulse()", 25);
+      }
+}
+    function strtstop()
+    {
+      if(r == false)
+       {
+        setTimeout("pulse()", 25);
+          r = true;
+} else {
+r = false; }
+} </script>
+ </head>
+ <body>
+ <div>
+  <img name="pic" src="heart.jpg" height="144px" width="144px"
+onClick="strtstop()">
+  </div>
+ </body>
+</html>
+
+
+
+
+7. Create an html document that displays the button below that will increase its size and change its value from 25x100 to 50x200 to 100x400 and then back to 25x100 when clicked in sequence.
+
+
+
+
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>ICC Final Question 3</title>
+  <script>
+   function resize()
+   {
+    if(frm.btn.style.height == "25px")
+    {
+     frm.btn.style.height = "50px";
+     frm.btn.style.width = "200px";
+     frm.btn.value = "50 x 200";
+} else {
+     if(frm.btn.style.height == "50px")
+     {
+      frm.btn.style.height = "100px";
+      frm.btn.style.width = "400px";
+      frm.btn.value = "100 x 400";
+} else {
+      frm.btn.style.height = "25px";
+      frm.btn.style.width = "100px";
+      frm.btn.value = "25 x 100";
+} }
+} </script>
+ </head>
+ <body>
+ <form name="frm">
+  <input type="button" name="btn" value="25 x 100" style="width:100px;
+   height:25px;" onClick="resize()">
+ </form>
+  </body>
+</html>
+
+
+.........A Better Version
+
+
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>ICC Final Question 7</title>
+  <script>
+   function resize()
+   {
+     var b = document.getElementById('btn');
+     if(parseInt(btn.style.height) < 100)
+     {
+       btn.style.width = parseInt(btn.style.width) * 2 + "px";
+       btn.style.height = parseInt(btn.style.height) * 2 + "px";
+     }
+else {
+       btn.style.width = "100px";
+       btn.style.height = "25px";
+     }
+     btn.value = parseInt(btn.style.height) +
+                 " x " + parseInt(btn.style.width);
+} </script>
+ </head>
+ <body>
+  <input type="button" id="btn" value="25 x 100" style="width:100px;
+    height:25px;" onClick="resize()">
+ </body>
+</html>
